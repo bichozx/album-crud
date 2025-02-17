@@ -1,0 +1,27 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="description"
+      >description</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Please input the description!"
+    >
+      <input nz-input formControlName="description" id="description" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="rating"
+      >rating</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Please input the rating!"
+    >
+      <input type="number" nz-input formControlName="rating" id="rating" />
+    </nz-form-control>
+  </nz-form-item>
+  <button nz-button [nzType]="'primary'">Create</button>
+</form>

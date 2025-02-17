@@ -1,0 +1,33 @@
+<div>
+  <label>Name</label>
+  <p>{{ data.name }}</p>
+
+  <p><img style="width: 40px" [src]="data.cover" /></p>
+
+  <label>Release Date</label>
+  <p>{{ data.releaseDate }}</p>
+
+  <label>Description</label>
+  <p>{{ data.description }}</p>
+  <label>Genero</label>
+  <p>{{ data.genre }}</p>
+  <label>Record label</label>
+  <p>{{ data.recordLabel }}</p>
+  <br />
+  <nz-table #basicTable [nzData]="data.comments" [nzScroll]="{ y: '400px' }">
+    <thead>
+      <tr>
+        <th>description</th>
+        <th>rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (data of basicTable.data; track data) {
+      <tr>
+        <td>{{ data.description }}</td>
+        <td>{{ data.rating }}</td>
+      </tr>
+      }
+    </tbody>
+  </nz-table>
+</div>

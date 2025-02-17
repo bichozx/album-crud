@@ -1,0 +1,114 @@
+<nz-card
+  style="width: 500px; margin: auto"
+  [nzBordered]="true"
+  nzTitle="Create Album"
+>
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name"
+        >Name</nz-form-label
+      >
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="24"
+        nzErrorTip="Please input the name!"
+      >
+        <input nz-input formControlName="name" id="name" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Cover URL input -->
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="cover" nzRequired
+        >Cover (URL)</nz-form-label
+      >
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="24"
+        nzErrorTip="Please input the Cover URL!"
+      >
+        <input
+          nz-input
+          formControlName="cover"
+          id="cover"
+          placeholder="Enter cover image URL"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="releaseDate" nzRequired
+        >Date</nz-form-label
+      >
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <nz-date-picker formControlName="releaseDate"></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="description" nzRequired
+        >Description</nz-form-label
+      >
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="24"
+        nzErrorTip="Please input the Description!"
+      >
+        <input nz-input id="description" formControlName="description" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Genre Dropdown -->
+    <nz-form-item>
+      <button
+        style="margin-left: 111px; margin-right: 14px"
+        nz-button
+        nz-dropdown
+        [nzDropdownMenu]="menuGenre"
+        [nzPlacement]="'bottomLeft'"
+      >
+        Genre
+      </button>
+      <nz-dropdown-menu #menuGenre="nzDropdownMenu" nzRequired>
+        <ul nz-menu>
+          <li nz-menu-item (click)="selectGenre('Salsa')">Salsa</li>
+          <li nz-menu-item (click)="selectGenre('Clasical')">Clasical</li>
+          <li nz-menu-item (click)="selectGenre('Rock')">Rock</li>
+          <li nz-menu-item (click)="selectGenre('Folk')">Folk</li>
+        </ul>
+      </nz-dropdown-menu>
+      <p>Selected Value: {{ validateForm.controls["genre"].value }}</p>
+    </nz-form-item>
+
+    <!-- recordLabel Dropdown -->
+    <nz-form-item>
+      <button
+        style="margin-left: 111px; margin-right: 14px"
+        nz-button
+        nz-dropdown
+        [nzDropdownMenu]="menuRecordLabel"
+        [nzPlacement]="'bottomLeft'"
+      >
+        recordLabel
+      </button>
+      <nz-dropdown-menu #menuRecordLabel="nzDropdownMenu" nzRequired>
+        <ul nz-menu>
+          <li nz-menu-item (click)="selectRecordLabel('Sony Music')">
+            Sony Music
+          </li>
+          <li nz-menu-item (click)="selectRecordLabel('EMI')">EMI</li>
+          <li nz-menu-item (click)="selectRecordLabel('Discos Fuentes')">
+            Discos Fuentes
+          </li>
+          <li nz-menu-item (click)="selectRecordLabel('Elektra')">Elektra</li>
+          <li nz-menu-item (click)="selectRecordLabel('Fania Records')">
+            Fania Records
+          </li>
+        </ul>
+      </nz-dropdown-menu>
+      <p>Selected Value: {{ validateForm.controls["recordLabel"].value }}</p>
+    </nz-form-item>
+
+    <button nz-button [nzType]="'primary'">Create</button>
+  </form>
+</nz-card>

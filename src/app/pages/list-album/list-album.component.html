@@ -1,0 +1,59 @@
+<nz-table
+  #basicTable
+  [nzData]="list"
+  [nzScroll]="{ y: 'calc(100vh - 250px)' }"
+  [nzBordered]="true"
+  [nzShowSizeChanger]="true"
+  [nzShowQuickJumper]="true"
+  [nzShowPagination]="true"
+  [nzPageSizeOptions]="[5, 10, 20]"
+>
+  <thead>
+    <tr>
+      <th nzWidth="10%">Name</th>
+      <th nzWidth="5%">Cover</th>
+      <th nzWidth="5%">Release Date</th>
+      <th nzWidth="15%">Description</th>
+      <th nzWidth="5%">Genre</th>
+      <th nzWidth="5%">Record Label</th>
+      <th nzWidth="15%">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let album of list">
+      <td>{{ album.name }}</td>
+      <td>
+        <img
+          [src]="album.cover"
+          alt="Cover"
+          style="width: 50px; height: auto"
+        />
+      </td>
+      <td>{{ album.releaseDate | date }}</td>
+      <td>{{ album.description }}</td>
+      <td>{{ album.genre }}</td>
+      <td>{{ album.recordLabel }}</td>
+      <td>
+        <button
+          (click)="viewDetails(album.id)"
+          nz-button
+          [nzSize]="size"
+          nzType="primary"
+          style="margin: 5px"
+        >
+          Details
+        </button>
+
+        <button
+          (click)="createComment(album.id)"
+          nz-button
+          [nzSize]="size"
+          nzType="primary"
+          style="margin: 5px"
+        >
+          Create comment
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
