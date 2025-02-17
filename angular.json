@@ -41,16 +41,15 @@
               "outputHashing": "all",
               "optimization": true,
               "sourceMap": false,
-              "extractCss": true,
+
               "namedChunks": false,
-              "aot": true,
-              "buildOptimizer": true
+              "aot": true
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
-              "vendorChunk": true,
+
               "namedChunks": true
             }
           },
