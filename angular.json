@@ -30,9 +30,6 @@
             "stylePreprocessorOptions": {
               "includePaths": ["src"]
             },
-            "lessOptions": {
-              "javascriptEnabled": true
-            },
             "configurations": {
               "production": {
                 "budgets": [
