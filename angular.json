@@ -19,14 +19,7 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": [
-              {
-                "input": "src/styles.less",
-                "inject": true,
-                "bundleName": "styles",
-                "lazy": false
-              }
-            ],
+            "styles": ["src/styles.less"],
             "stylePreprocessorOptions": {
               "includePaths": ["src"]
             }
@@ -51,7 +44,6 @@
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
-              "vendorChunk": false,
               "buildOptimizer": true
             },
             "development": {
